@@ -63,22 +63,6 @@ router.get(
 );
 
 router.get(
-	"/content",
-	query("query").optional().isString().withMessage("Query must be a string"),
-	query("type").optional().isString().withMessage("Type must be a string"),
-	query("page")
-		.optional()
-		.isInt({ min: 1 })
-		.withMessage("Page must be a positive integer"),
-	query("limit")
-		.optional()
-		.isInt({ min: 1 })
-		.withMessage("Limit must be a positive integer"),
-	(req: Request, res: Response, next: NextFunction) =>
-		searchController.searchContent(req, res, next)
-);
-
-router.get(
 	"/reviews",
 	query("query").optional().isString().withMessage("Query must be a string"),
 	query("page")
